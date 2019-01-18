@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+	<session-factory>
+		<property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+		<!-- Database with name of hibernate and the whole URL should be present. in MYSQL -->
+		<property name="hibernate.connection.url">jdbc:mysql://localhost:3306/hibernate</property>
+		<property name="hibernate.connection.username">root</property>
+		<property name="hibernate.connection.password">atishay</property>
+
+		<!-- This is deprecated for latest MySql, hibernate now uses engine instead 
+			of type. -->
+		<!-- org.hibernate.dialect.MySQLDialect -->
+
+		<!-- <property name="hibernate.dialect">org.hibernate.dialect.MySQLInnoDBDialect</property> -->
+
+		<property name="hibernate.dialect">org.hibernate.dialect.MySQL57Dialect</property>
+		<property name="show_sql">true</property>
+
+		<!-- This will format the SQL -->
+		<!-- <property name="format_sql">true</property> -->
+		<property name="hbm2ddl.auto">create</property>
+
+		<!-- connection pool -->
+		<!-- with this hibernate will not use its default connection pooling, it 
+			will use this third party. -->
+		<!-- like c3p0 there is another like proxol -->
+		<property name="c3p0.timeout">10</property>
+
+		<!-- <property name="hibernate.id.new_generator_mappings">false</property> -->
+
+		<!-- It is important so that hibernate can understand which classes to 
+			map with which tables. -->
+		<!-- User annotation class -->
+		<mapping class="org.hibernate.tutorial.dto.UserDetailsDTO" />
+	</session-factory>
+</hibernate-configuration>
